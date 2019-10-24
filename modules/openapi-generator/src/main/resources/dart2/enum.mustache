@@ -2,14 +2,14 @@ class {{classname}} {
   /// The underlying value of this enum member.
   final {{dataType}} value;
 
-  const {{classname}}._internal(this.value);
+  const {{classname}}(this.value);
 
   {{#allowableValues}}
     {{#enumVars}}
       {{#description}}
   /// {{description}}
       {{/description}}
-  static const {{classname}} {{{name}}} = const {{classname}}._internal({{{value}}});
+  static const {{classname}} {{{name}}} = const {{classname}}({{{value}}});
     {{/enumVars}}
   {{/allowableValues}}
 
@@ -31,7 +31,7 @@ class {{classname}}TypeTransformer {
       case {{{value}}}: return {{classname}}.{{{name}}};
         {{/enumVars}}
       {{/allowableValues}}
-      default: throw('Unknown enum value to decode: $data');
+      default: return {{classname}}({{data}});
     }
   }
 }
