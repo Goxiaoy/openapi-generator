@@ -16,6 +16,10 @@ class {{classname}} {
   static {{classname}} fromJson(String value) {
     return new {{classname}}TypeTransformer().decode(value);
   }
+
+  static {{classname}} toJson() {
+    return new {{classname}}TypeTransformer().encode(value);
+  }
 }
 
 class {{classname}}TypeTransformer {
