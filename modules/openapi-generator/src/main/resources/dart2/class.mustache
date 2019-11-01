@@ -90,10 +90,10 @@ class {{classname}} {
     if ({{name}} != null)
         {{/isNullable}}
         {{#isDateTime}}
-      json['{{baseName}}'] = {{name}} == null ? null : {{name}}.toIso8601String();
+      json['{{baseName}}'] = {{name}} == null ? null : {{name}}.toUtc().toIso8601String();
       {{/isDateTime}}
       {{#isDate}}
-      json['{{baseName}}'] = {{name}} == null ? null : {{name}}.toIso8601String();
+      json['{{baseName}}'] = {{name}} == null ? null : {{name}}.toUtc().toIso8601String();
       {{/isDate}}
       {{^isDateTime}}
       {{^isDate}}

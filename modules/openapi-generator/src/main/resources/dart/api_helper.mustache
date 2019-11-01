@@ -37,7 +37,7 @@ String parameterToString(dynamic value) {
   if (value == null) {
     return '';
   } else if (value is DateTime) {
-    return value.toIso8601String();
+    return value.toUtc().toIso8601String();
   {{#models}}
     {{#model}}
       {{#isEnum}}
