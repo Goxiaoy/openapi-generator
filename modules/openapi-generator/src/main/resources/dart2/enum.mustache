@@ -17,9 +17,11 @@ class {{classname}} {
     return new {{classname}}TypeTransformer().decode(value);
   }
 
-  static {{classname}} toJson() {
-    return new {{classname}}TypeTransformer().encode(value);
+  dynamic toJson() {
+    return new {{classname}}TypeTransformer().encode(this);
   }
+
+  bool operator == (o) => (o is {{classname}} && o.value == value) || (o is String && o==value);
 }
 
 class {{classname}}TypeTransformer {
@@ -35,7 +37,7 @@ class {{classname}}TypeTransformer {
       case {{{value}}}: return {{classname}}.{{{name}}};
         {{/enumVars}}
       {{/allowableValues}}
-      default: return {{classname}}({{data}});
+      default: return {{classname}}(data);
     }
   }
 }
