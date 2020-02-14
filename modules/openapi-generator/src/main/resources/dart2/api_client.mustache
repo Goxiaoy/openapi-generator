@@ -15,8 +15,8 @@ class ApiClient {
   Map<String, String> _defaultHeaderMap = {};
   Map<String, Authentication> _authentications = {};
 
-  final _regList = RegExp(r'^List<(.*)>$');
-  final _regMap = RegExp(r'^Map<String,(.*)>$');
+  static final _regList = RegExp(r'^List<(.*)>$');
+  static final _regMap = RegExp(r'^Map<String,(.*)>$');
 
   ApiClient({this.basePath = "{{{basePath}}}"}) {
     // Setup authentications (key: authentication name, value: authentication).{{#authMethods}}{{#isBasic}}
@@ -29,7 +29,7 @@ class ApiClient {
      _defaultHeaderMap[key] = value;
   }
 
-  dynamic _deserialize(dynamic value, String targetType) {
+  static dynamic _deserialize(dynamic value, String targetType) {
     try {
       switch (targetType) {
         case 'String':
