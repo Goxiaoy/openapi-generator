@@ -72,7 +72,7 @@ class ApiClient {
     throw ApiException(500, 'Could not find a suitable class for deserialization');
   }
 
-  dynamic deserialize(String json, String targetType) {
+  static dynamic deserialize(String json, String targetType) {
     // Remove all spaces.  Necessary for reg expressions as well.
     targetType = targetType.replaceAll(' ', '');
 
@@ -82,7 +82,7 @@ class ApiClient {
     return _deserialize(decodedJson, targetType);
   }
 
-  String serialize(Object obj) {
+  static String serialize(Object obj) {
     String serialized = '';
     if (obj == null) {
       serialized = '';
