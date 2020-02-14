@@ -6,7 +6,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -157,6 +157,7 @@ public class InlineModelResolver {
                 ObjectSchema op = (ObjectSchema) inner;
                 if (op.getProperties() != null && op.getProperties().size() > 0) {
                     flattenProperties(op.getProperties(), pathname);
+                    // Generate a unique model name based on the title.
                     String modelName = resolveModelName(op.getTitle(), null);
                     Schema innerModel = modelFromProperty(op, modelName);
                     String existing = matchGenerated(innerModel);
