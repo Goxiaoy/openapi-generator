@@ -21,6 +21,11 @@ class {{classname}} {
     return new {{classname}}TypeTransformer().encode(this);
   }
 
+  @override
+  String toString() {
+    return value;
+  }
+  
   bool operator == (o) => (o is {{classname}} && o.value == value) || (o is String && o==value);
 }
 
